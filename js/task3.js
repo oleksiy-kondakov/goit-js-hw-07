@@ -16,13 +16,5 @@ const images = [
   },
 ];
 const ulRef = document.querySelector('#gallery')
-images.forEach(element => {
-    const item = document.createElement('li');
-    const img = document.createElement('img');
-    img.src = element.url;
-    img.alt = element.alt;
-    img.width = '200';
-    item.append(img)
-    ulRef.append(item)
-})
-ulRef.classList.add('gallery')
+gallery.insertAdjacentHTML('afterbegin', images.map(({ url, alt }) => `<li><img height="150" src="${url}" alt="${alt}"></li>`).join(''));
+gallery.classList.add("gallery");
